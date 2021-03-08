@@ -1,0 +1,64 @@
+<div class="card-body">
+  <div class="row justify-content-start">
+    <div class="col-4">
+      <h5 class="card-title">Kind</h5>
+    </div>
+    <div class="col-4">
+      <p class="card-text">
+        {{ bookSelected.volumeInfo?.categories }}
+      </p>
+    </div>
+    <hr />
+  </div>
+  <div class="row justify-content-start">
+    <div class="col-4">
+      <h5 class="card-title">Publisher</h5>
+    </div>
+    <div class="col-4">
+      <p class="card-text">
+        {{ bookSelected.volumeInfo?.publisher }}
+      </p>
+    </div>
+    <hr />
+  </div>
+  <div class="row justify-content-start">
+    <div class="col-4">
+      <h5 class="card-title">Format</h5>
+    </div>
+    <div class="col-4">
+      <p class="card-text">
+        {{ bookSelected.volumeInfo?.printType }}
+      </p>
+    </div>
+    <hr />
+  </div>
+  <div class="row justify-content-start">
+    <div class="col-4">
+      <h5 class="card-title">Language</h5>
+    </div>
+    <div class="col-4">
+      <p class="card-text">"{{ bookSelected.volumeInfo?.language }}"</p>
+    </div>
+    <hr />
+  </div>
+  <div class="row justify-content-start">
+    <div class="col-4">
+      <h5 class="card-title">Total Pages</h5>
+    </div>
+    <div class="col-4">
+      <p class="card-text">"{{ bookSelected.volumeInfo?.pageCount }}"</p>
+    </div>
+    <hr />
+  </div>
+  <div class="row justify-content-start">
+    <div class="col-4">
+      <h5 class="card-title">ISBN Code</h5>
+    </div>
+    <div class="col-4">
+      <p class="card-text">
+        {{ bookSelected.volumeInfo?.industryIdentifiers[0].identifier }}
+      </p>
+    </div>
+    <hr />
+  </div>
+</div>

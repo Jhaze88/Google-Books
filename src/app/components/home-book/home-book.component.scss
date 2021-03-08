@@ -1,0 +1,14 @@
+.box {
+  width: 100%;
+  border: 37px solid teal;
+  opacity: 0.8;
+  .started {
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+  }
+  img {
+    min-width: 100%;
+    max-height: 100%;
+  }
+}

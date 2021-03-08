@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-9">
+      <input
+        type="text"
+        class="my-3 form-control form-control-lg mt-4"
+        placeholder="Search..."
+        [(ngModel)]="keyWord"
+        (ngModelChange)="searchBook()"
+      />
+    </div>
+    <div class="col-3 mt-4">
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        [(ngModel)]="results"
+        (ngModelChange)="modifyResults(results)"
+      >
+        <option [value]="results">All Books</option>
+        <option *ngFor="let val of value" [value]="val">
+          {{ val }}
+        </option>
+      </select>
+    </div>
+    <div class="col d-flex justify-content-end"></div>
+    Total Books: {{ results }}
+    <hr />
+
+    <div class="col-12 d-flex justify-content-center" *ngIf="load">
+      <div class="loadingio-spinner-bean-eater-w5lgvkdj28e">
+        <div class="ldio-q5fzchgsyko">
+          <div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="px-3 col-sm-6 col-md-4 col-lg-2" *ngFor="let b of bookArr">
+        <book-card
+          class="col-12 d-flex"
+          [bookArr]="bookArr"
+          [src]="b.volumeInfo.imageLinks?.smallThumbnail"
+          [title]="b.volumeInfo.title"
+          (click)="goToDetails(b)"
+        ></book-card>
+      </div>
+    </div>
+  </div>
+</div>

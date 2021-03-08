@@ -1,0 +1,78 @@
+<div class="container col-12" *ngIf="bookSelected">
+  <div class="row">
+    <div class="col-sm-12 d-flex justify-content-start mt-3">
+      <a>
+        <img
+          class="arrow-back"
+          src="../../assets/ic_arrow_back_36px.svg"
+          alt="Back"
+          routerLink="/book-store"
+        />
+      </a>
+    </div>
+  </div>
+  <div class="card mb-3 mt-4" style="max-width: 840px">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <img
+          class="img-thumbnail img-fluid mx-5 my-5"
+          src="{{
+            bookSelected.volumeInfo?.imageLinks?.smallThumbnail
+              ? bookSelected.volumeInfo?.imageLinks?.smallThumbnail
+              : '-'
+          }}"
+          alt="..."
+        />
+      </div>
+
+      <div class="col-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ bookSelected.volumeInfo?.title }}</h5>
+          <h6>{{ bookSelected.volumeInfo?.subtitle }}</h6>
+          <small>{{ bookSelected.volumeInfo?.authors }}</small>
+          <hr />
+          <p>
+            Published by <small>{{ bookSelected.volumeInfo?.publisher }}</small>
+          </p>
+          <h5>
+            <span class="label-auth"
+              >{{
+                bookSelected.saleInfo?.listPrice.amount
+                  ? bookSelected.saleInfo?.listPrice.amount
+                  : "-"
+              }}
+              {{ bookSelected.saleInfo?.listPrice.currencyCode }}</span
+            >
+          </h5>
+          <div class="mt-4">
+            <p class="card-text">
+              {{ bookSelected.volumeInfo?.description | slice: 0:168 }}
+              <span class="toogle" (click)="toogle()"
+                >"..."
+                <span *ngIf="showMe" class="card-text">
+                  {{ bookSelected.volumeInfo?.description | slice: 168:5000 }}
+                </span></span
+              >
+            </p>
+          </div>
+          <hr />
+          <p class="card-text">
+            <a href="{{ bookSelected.volumeInfo?.infoLink }}"
+              ><small class="text-muted">Info Link</small></a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="true">Details</a>
+        </li>
+      </ul>
+    </div>
+    <info-details [bookSelected]="bookSelected"></info-details>
+  </div>
+</div>

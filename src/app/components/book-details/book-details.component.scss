@@ -1,0 +1,19 @@
+.arrow-back {
+  cursor: pointer;
+}
+.main {
+  width: 12rem;
+  height: 12rem;
+  border: 2px solid black;
+}
+.info {
+  width: 30rem;
+  height: 30rem;
+  border: 2px solid black;
+}
+.toogle {
+  cursor: pointer;
+  & :hover {
+    color: blue;
+  }
+}

@@ -1,0 +1,11 @@
+<div class="card-size card mt-3 mb-4">
+  <img [src]="src" class="card-img-top img-fluid" [alt]="title" />
+  <div class="card-body">
+    <h5 class="card-title">{{ title }}</h5>
+    <p class="card-text"></p>
+
+    <button class="btn btn-primary" type="button" (click)="onClick($event)">
+      Go To Details
+    </button>
+  </div>
+</div>
